@@ -1,8 +1,8 @@
-import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
-import SplashScreen from 'react-native-splash-screen';
-import {View} from 'react-native';
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import SplashScreen from "react-native-splash-screen";
+import { View } from "react-native";
 
 import {
   OnBoarding,
@@ -11,8 +11,9 @@ import {
   // SignUp,
   // ForgotPassword,
   // Otp
-} from './screens';
-import SignIn from './screens/Authentication/SignIn';
+} from "./screens";
+import SignIn from "./screens/Authentication/SignIn";
+import Tabs from "./navigation/tabs";
 
 const Stack = createStackNavigator();
 
@@ -27,7 +28,8 @@ const App = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName={'OnBoarding'}>
+        initialRouteName={"OnBoarding"}
+      >
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
 
         <Stack.Screen name="SignIn" component={SignIn} />
@@ -46,6 +48,11 @@ const App = () => {
                   name="Otp"
                   component={Otp}
               /> */}
+        <Stack.Screen
+          name="Home"
+          component={Tabs}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
